@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         userLayout.layout.addView(tv);
         userLayout.layout.setY(50);
 
+        //这个是新的
         Log.i(GlobalString.logTag, "onCreate");
     }
 }
