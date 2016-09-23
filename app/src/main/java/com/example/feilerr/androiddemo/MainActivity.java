@@ -1,17 +1,12 @@
 package com.example.feilerr.androiddemo;
 
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
+import com.example.feilerr.view.UserView;
 import com.example.viewFactory.LayoutFactory;
-import com.example.viewFactory.MEditText;
-import com.example.viewFactory.MTextView;
-import com.example.viewFactory.MView;
 
 import zframework.base.BaseActivity;
 import zframework.global.GlobalValue;
@@ -34,27 +29,10 @@ public class MainActivity extends BaseActivity {
         rootLayout.layout.addView(userLayout.layout);
         userLayout.layout.setY(50 * ShareData.getInstance().DENSITY);
 
-        MView mview = new MView(this);
-        RelativeLayout.LayoutParams itemParams = new RelativeLayout.LayoutParams((int)ShareData.getInstance().ITEM_WIDTH,
-                (int)ShareData.getInstance().ITEM_HEIGHT);
-        itemParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
-        mview.setLayoutParams(itemParams);
-        mview.setBackgroundColor(Color.GRAY);
-        userLayout.layout.addView(mview);
-
-        RelativeLayout.LayoutParams tvParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-                (int)ShareData.getInstance().ITEM_HEIGHT);
-        TextView tv = new MTextView(this);
-        tv.setText("用户名");
-        tv.setLayoutParams(tvParams);
-        tv.setId(R.id.username);
-        tv.setPadding((int) ShareData.getInstance().MARGIN*2,0,0,0);
-        userLayout.layout.addView(tv);
-
-        EditText et = new MEditText(this);
-        et.setLayoutParams(tvParams);
-//        tvParams.addRule(RelativeLayout.ALIGN_LEFT,R.id.username);
-        userLayout.layout.addView(et);
+        UserView userView = new UserView(this);
+        userView.init();
+        userView.addContent(userLayout.layout,R.id.username_pre,R.id.username,"用户名","请输入手机号");
+        userLayout.layout.addView(userView);
 
         Log.i(GlobalValue.logTag, "onCreate");
     }
