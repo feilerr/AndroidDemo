@@ -4,8 +4,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import zframework.support.ShareData;
-
 public class LayoutFactory{
 	
 	public ViewGroup layout;
@@ -13,18 +11,6 @@ public class LayoutFactory{
 	public LayoutFactory(ViewGroup viewGroup) {
 		super();
 		this.layout = viewGroup;
-	}
-
-	public ViewGroup.LayoutParams getItemParams(){
-		if (this.layout.getClass().getName().equals("android.widget.RelativeLayout")){
-			RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
-					(int) ShareData.getInstance().ITEM_WIDTH,
-					(int) ShareData.getInstance().ITEM_WIDTH);
-			params.addRule(RelativeLayout.CENTER_IN_PARENT);
-			return params;
-		}else{
-			return null;
-		}
 	}
 
 	public ViewGroup.LayoutParams matchParent(boolean isMatch){
