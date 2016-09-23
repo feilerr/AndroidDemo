@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import zframework.support.ShareData;
-import zframework.global.GlobalString;
+import zframework.global.GlobalValue;
 
 public class BaseActivity extends Activity {
 	
@@ -37,42 +37,42 @@ public class BaseActivity extends Activity {
 	protected void onStart() {
 		// TODO Auto-generated method stub
 		super.onStart();
-		Log.i(GlobalString.logTag, "onStart");
+		Log.i(GlobalValue.logTag, "onStart");
 	}
 
 	@Override
 	protected void onRestart() {
 		// TODO Auto-generated method stub
 		super.onRestart();
-		Log.i(GlobalString.logTag, "onRestart");
+		Log.i(GlobalValue.logTag, "onRestart");
 	}
 
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		Log.i(GlobalString.logTag, "onResume");
+		Log.i(GlobalValue.logTag, "onResume");
 	}
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		// TODO Auto-generated method stub
 		super.onSaveInstanceState(outState);
-		Log.i(GlobalString.logTag, "onSaveInstanceState");
+		Log.i(GlobalValue.logTag, "onSaveInstanceState");
 	}
 
 	@Override
 	protected void onPause() {
 		// TODO Auto-generated method stub
 		super.onPause();
-		Log.i(GlobalString.logTag, "onPause");
+		Log.i(GlobalValue.logTag, "onPause");
 	}
 
 	@Override
 	protected void onStop() {
 		// TODO Auto-generated method stub
 		super.onStop();
-		Log.i(GlobalString.logTag, "onStop");
+		Log.i(GlobalValue.logTag, "onStop");
 	}
 
 	@Override
