@@ -3,9 +3,7 @@ package com.example.feilerr.view;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.example.feilerr.androiddemo.R;
 import com.example.viewFactory.MEditText;
@@ -18,11 +16,16 @@ import zframework.support.ShareData;
  * Created by feilerr on 2016/9/23.
  */
 
-public class UserView extends View implements ViewFactory {
+public class UserView extends RelativeLayout implements ViewFactory {
     private Context context;
+    public RelativeLayout.LayoutParams layoutParams;
+    public  int shortWidth;
+    private int naviBtnWidth;
+
     public UserView(Context context) {
         super(context);
         this.context = context;
+        this.init();
     }
 
     @Override
@@ -32,31 +35,47 @@ public class UserView extends View implements ViewFactory {
         itemParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
         this.setLayoutParams(itemParams);
         this.setBackgroundResource(R.drawable.border);
+        this.layoutParams = itemParams;
+        naviBtnWidth  = (int)(ShareData.getInstance().DENSITY*20);
     }
 
-    @Override
-    public void addContent(Object object,int textID,int editID,String text,String hint) {
-        RelativeLayout layout = (RelativeLayout) object;
+    public void addContent(int textID,int editID,String text,String hint) {
+
         RelativeLayout.LayoutParams tvParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
                 (int)ShareData.getInstance().ITEM_HEIGHT);
-        TextView tv = new MTextView(this.context);
-        tv.setText(text);
+        MTextView tv = new MTextView(this.context);
         tv.setLayoutParams(tvParams);
+        tv.setText(text);
+        tv.setWidth(shortWidth);
         tv.setId(textID);
-        tv.setPadding((int) ShareData.getInstance().MARGIN*2,0,0,0);
-        layout.addView(tv);
+        tv.setPadding((int) ShareData.getInstance().MARGIN,0,0,0);
+        this.addView(tv);
 
         RelativeLayout.LayoutParams etParams = new RelativeLayout.LayoutParams((int) ShareData.getInstance().ITEM_WIDTH-
-                60*(int)ShareData.getInstance().DENSITY,
+                this.shortWidth-(int) ShareData.getInstance().MARGIN,
                 (int)ShareData.getInstance().ITEM_HEIGHT);
-        EditText et = new MEditText(this.context);
+        MEditText et = new MEditText(this.context);
+        et.clearButton = R.drawable.common_input_box_clear;
+        et.init();
         et.setTextSize(16);
         et.setId(editID);
         et.setHint(hint);
         et.setBackgroundColor(Color.TRANSPARENT);
         etParams.addRule(RelativeLayout.RIGHT_OF,textID);
-        et.setPadding((int) ShareData.getInstance().MARGIN,0,0,0);
+        et.setPadding(20,0,0,0);
         et.setLayoutParams(etParams);
-        layout.addView(et);
+        this.addView(et);
+    }
+
+    public View resizeNavi(View view){
+        MTextView navi1 = (MTextView)view.findViewById(R.id.fragment_check_home);
+        navi1.getCompoundDrawables()[1].setBounds(0,0,naviBtnWidth,naviBtnWidth);
+        MTextView navi2 = (MTextView)view.findViewById(R.id.fragment_check_commune);
+        navi2.getCompoundDrawables()[1].setBounds(0,0,naviBtnWidth,naviBtnWidth);
+        MTextView navi3 = (MTextView)view.findViewById(R.id.fragment_check_publish);
+        navi3.getCompoundDrawables()[1].setBounds(0,0,naviBtnWidth,naviBtnWidth);
+        MTextView navi4 = (MTextView)view.findViewById(R.id.fragment_check_user);
+        navi4.getCompoundDrawables()[1].setBounds(0,0,naviBtnWidth,naviBtnWidth);
+        return view;
     }
 }

@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <item name="subview_tag" type="id"></item>
+    <item name="submit_btn_id" type="id"></item>
+    <item name="viewpage_content" type="id"></item>
+    <item name="frameLayout_check" type="id"></item>
+    <item name="navi_layout1" type="id"></item>
+    <item name="navi_layout2" type="id"></item>
+    <item name="navi_layout3" type="id"></item>
+    <item name="navi_layout4" type="id"></item>
+
+    <item name="navi_line" type="id"></item>
+    <item name="navi_item1" type="id"></item>
+    <item name="navi_item2" type="id"></item>
+    <item name="navi_item3" type="id"></item>
+    <item name="navi_item4" type="id"></item>
+
+    <item name="layout_title" type="id"></item>
+    <item name="username_layout" type="id"></item>
     <item name="username_pre" type="id"></item>
     <item name="username" type="id"></item>
+    <item name="password_layout" type="id"></item>
+    <item name="password_pre" type="id"></item>
+    <item name="password" type="id"></item>
+    <item name="password_show" type="id"></item>
 </resources>

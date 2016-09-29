@@ -3,6 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="submit_btn_color">#FF0DA94B</color>
+    <color name="white_color">#FFFFFF</color>
+    <color name="navi_back_color">#f0f0f0</color>
+    <color name="navi_line_color">#c0c0c0</color>
     <!--用户输入界面颜色-->
     <color name="text_border_back">#38bdd4</color>
     <color name="text_pre_color">#545454</color>

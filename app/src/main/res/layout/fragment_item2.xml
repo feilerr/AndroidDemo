@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <com.example.viewFactory.MTextView
+        android:id="@+id/fragment_check_home"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:drawableTop="@drawable/navi11"
+        android:text="@string/navi_title1" />
+
+    <com.example.viewFactory.MTextView
+        android:id="@+id/fragment_check_commune"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:drawableTop="@drawable/navi2"
+        android:text="@string/navi_title2" />
+
+    <com.example.viewFactory.MTextView
+        android:id="@+id/fragment_check_publish"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:drawableTop="@drawable/navi33"
+        android:text="@string/navi_title3" />
+
+    <com.example.viewFactory.MTextView
+        android:id="@+id/fragment_check_user"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:drawableTop="@drawable/navi44"
+        android:text="@string/navi_title4" />
+</LinearLayout>

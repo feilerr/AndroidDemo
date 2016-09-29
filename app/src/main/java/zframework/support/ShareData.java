@@ -10,9 +10,9 @@ public class ShareData {
 	public int SCREEN_WIDTH;
 	public int SCREEN_HEIGHT;
 	public float DENSITY;
-	public float MARGIN;
-	public float ITEM_HEIGHT;
-	public float ITEM_WIDTH;
+	public int MARGIN;
+	public int ITEM_HEIGHT;
+	public int ITEM_WIDTH;
 
 	private ShareData() {
 	};
@@ -38,8 +38,8 @@ public class ShareData {
 		SCREEN_WIDTH = dm.widthPixels;
 		SCREEN_HEIGHT = dm.heightPixels;
 		DENSITY = dm.density;
-		MARGIN = 20*DENSITY;
-		ITEM_HEIGHT = 44*DENSITY;
+		MARGIN = (int)(20*DENSITY);
+		ITEM_HEIGHT = (int)(44*DENSITY);
 		ITEM_WIDTH = SCREEN_WIDTH-2*MARGIN;
 	}
 

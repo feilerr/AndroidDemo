@@ -5,6 +5,6 @@ package zframework.base;
  */
 
 public interface ViewFactory {
+
     void init();
-    void addContent(Object object,int textID,int editID,String text,String hint);
 }

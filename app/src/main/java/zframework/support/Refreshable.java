@@ -1,7 +1,5 @@
 package zframework.support;
 
 public interface Refreshable {
-
-	void refresh();
-	
+	void refresh(boolean isChange);
 }

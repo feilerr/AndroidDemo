@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AndroidDemo</string>
+    <string name="navi_title1">首页</string>
+    <string name="navi_title2">交流</string>
+    <string name="navi_title3">发布</string>
+    <string name="navi_title4">我的</string>
 </resources>
