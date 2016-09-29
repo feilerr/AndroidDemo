@@ -3,9 +3,12 @@ package com.example.feilerr.androiddemo.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.example.feilerr.androiddemo.R;
@@ -17,8 +20,10 @@ import com.example.viewFactory.MTextView;
  */
 
 public class NaviCommune extends Fragment {
-    RelativeLayout rootLayout;
     private android.support.v4.app.FragmentManager fm;
+    private MTextView tv1,tv3,tv4;
+    private android.support.v4.app.FragmentTransaction ft;
+    private ViewPager viewPager;
 
     public NaviCommune(){
 
@@ -39,19 +44,57 @@ public class NaviCommune extends Fragment {
         RelativeLayout layout = (RelativeLayout) view;
         layoutFactory.addNaviItem(getActivity(),layout,1);
         findView(view);
+
+        ViewParent parent = container.getParent();
+        LinearLayout parentLayout = (LinearLayout)parent;
+        viewPager = (ViewPager) parentLayout.findViewById(R.id.main_viewpager);
+
         return view;
     }
 
     private void findView(View view){
-        MTextView tv1 = (MTextView) view.findViewById(R.id.navi_item1);
-        MTextView tv2 = (MTextView) view.findViewById(R.id.navi_item2);
-        MTextView tv3 = (MTextView) view.findViewById(R.id.navi_item3);
-        MTextView tv4 = (MTextView) view.findViewById(R.id.navi_item4);
+        tv1 = (MTextView) view.findViewById(R.id.navi_item1);
+        tv3 = (MTextView) view.findViewById(R.id.navi_item3);
+        tv4 = (MTextView) view.findViewById(R.id.navi_item4);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         fm = getActivity().getSupportFragmentManager();
+        startListen();//监听
+    }
+
+    private void startListen() {
+        tv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewPager.setCurrentItem(0);
+                viewPager.getAdapter().notifyDataSetChanged();
+                ft = fm.beginTransaction();
+                ft.replace(R.id.frameLayout_check, new NaviHome());
+                ft.commit();
+            }
+        });
+        tv3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewPager.setCurrentItem(2);
+                viewPager.getAdapter().notifyDataSetChanged();
+                ft = fm.beginTransaction();
+                ft.replace(R.id.frameLayout_check, new NaviPublish());
+                ft.commit();
+            }
+        });
+        tv4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewPager.setCurrentItem(4);
+                viewPager.getAdapter().notifyDataSetChanged();
+                ft = fm.beginTransaction();
+                ft.replace(R.id.frameLayout_check, new NaviUser());
+                ft.commit();
+            }
+        });
     }
 }

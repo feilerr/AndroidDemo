@@ -53,6 +53,8 @@ public class MainActivity extends FragmentActivity{
             ft.replace(R.id.frameLayout_check, home);
             ft.commit();
             Log.i(GlobalString.logTag,"增加了");
+        }else{
+
         }
     }
 
@@ -70,14 +72,13 @@ public class MainActivity extends FragmentActivity{
         tv2 = (MTextView) findViewById(R.id.navi_item2);
         tv3 = (MTextView) findViewById(R.id.navi_item3);
         tv4 = (MTextView) findViewById(R.id.navi_item4);
+    }
+
+    private void binding(){
         fragmentList.add(new HomeFragment());
         fragmentList.add(new CommuneFragment());
         fragmentList.add(new PublishFragment());
         fragmentList.add(new UserFragment());
-
-    }
-
-    private void binding(){
         fragPagerAdapter= new FragementViewPagerAdapter(getSupportFragmentManager(), fragmentList);
         viewPager.setAdapter(fragPagerAdapter);
     }
