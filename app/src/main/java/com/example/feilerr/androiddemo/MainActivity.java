@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 
+import com.example.ADContext;
 import com.example.feilerr.androiddemo.Adapter.FragementViewPagerAdapter;
 import com.example.feilerr.androiddemo.Fragment.CommuneFragment;
 import com.example.feilerr.androiddemo.Fragment.HomeFragment;
@@ -22,7 +22,6 @@ import com.example.viewFactory.MTextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import zframework.global.GlobalString;
 import zframework.support.ShareData;
 
 public class MainActivity extends FragmentActivity{
@@ -32,12 +31,7 @@ public class MainActivity extends FragmentActivity{
     private MButton toLogin;
     private List<Fragment> fragmentList = new ArrayList<Fragment>();
     private android.support.v4.app.FragmentTransaction ft;
-    private NaviHome home ;
-    private NaviCommune commune = new NaviCommune();
-    public NaviPublish publish = new NaviPublish();
-    public NaviUser user = new NaviUser();
     private MTextView tv1, tv2, tv3, tv4;
-    private boolean isFirst = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,14 +41,27 @@ public class MainActivity extends FragmentActivity{
         ShareData.getInstance().setContext(this);
         ShareData.getInstance().initData();
 
-        if (!isFirst){
-            home = new NaviHome();
-            ft = fm.beginTransaction();
-            ft.replace(R.id.frameLayout_check, home);
-            ft.commit();
-            Log.i(GlobalString.logTag,"增加了");
-        }else{
-
+        switch (ADContext.getInstance().index){
+            case 0:
+                ft = fm.beginTransaction();
+                ft.replace(R.id.frameLayout_check, new NaviHome());
+                ft.commit();
+                break;
+            case 1:
+                ft = fm.beginTransaction();
+                ft.replace(R.id.frameLayout_check, new NaviCommune());
+                ft.commit();
+                break;
+            case 2:
+                ft = fm.beginTransaction();
+                ft.replace(R.id.frameLayout_check, new NaviPublish());
+                ft.commit();
+                break;
+            case 4:
+                ft = fm.beginTransaction();
+                ft.replace(R.id.frameLayout_check, new NaviUser());
+                ft.commit();
+                break;
         }
     }
 
@@ -90,8 +97,9 @@ public class MainActivity extends FragmentActivity{
                 viewPager.setCurrentItem(0);
                 fragPagerAdapter.notifyDataSetChanged();
                 ft = fm.beginTransaction();
-                ft.replace(R.id.frameLayout_check, home);
+                ft.replace(R.id.frameLayout_check, new NaviHome());
                 ft.commit();
+                ADContext.getInstance().index = 0;
             }
         });
         tv2.setOnClickListener(new View.OnClickListener() {
@@ -100,8 +108,9 @@ public class MainActivity extends FragmentActivity{
                 viewPager.setCurrentItem(1);
                 fragPagerAdapter.notifyDataSetChanged();
                 ft = fm.beginTransaction();
-                ft.replace(R.id.frameLayout_check, commune);
+                ft.replace(R.id.frameLayout_check, new NaviCommune());
                 ft.commit();
+                ADContext.getInstance().index = 1;
             }
         });
         tv3.setOnClickListener(new View.OnClickListener() {
@@ -110,8 +119,9 @@ public class MainActivity extends FragmentActivity{
                 viewPager.setCurrentItem(2);
                 fragPagerAdapter.notifyDataSetChanged();
                 ft = fm.beginTransaction();
-                ft.replace(R.id.frameLayout_check, publish);
+                ft.replace(R.id.frameLayout_check, new NaviPublish());
                 ft.commit();
+                ADContext.getInstance().index = 2;
             }
 
         });
@@ -121,8 +131,9 @@ public class MainActivity extends FragmentActivity{
                 viewPager.setCurrentItem(3);
                 fragPagerAdapter.notifyDataSetChanged();
                 ft = fm.beginTransaction();
-                ft.replace(R.id.frameLayout_check, user);
+                ft.replace(R.id.frameLayout_check, new NaviUser());
                 ft.commit();
+                ADContext.getInstance().index = 3;
             }
         });
 
@@ -138,23 +149,27 @@ public class MainActivity extends FragmentActivity{
                 switch (position) {
                     case 0:
                         ft = fm.beginTransaction();
-                        ft.replace(R.id.frameLayout_check, home);
+                        ft.replace(R.id.frameLayout_check, new NaviHome());
                         ft.commit();
+                        ADContext.getInstance().index = 0;
                         break;
                     case 1:
                         ft = fm.beginTransaction();
-                        ft.replace(R.id.frameLayout_check, commune);
+                        ft.replace(R.id.frameLayout_check, new NaviCommune());
                         ft.commit();
+                        ADContext.getInstance().index = 1;
                         break;
                     case 2:
                         ft = fm.beginTransaction();
-                        ft.replace(R.id.frameLayout_check, publish);
+                        ft.replace(R.id.frameLayout_check, new NaviPublish());
                         ft.commit();
+                        ADContext.getInstance().index = 2;
                         break;
                     case 3:
                         ft = fm.beginTransaction();
-                        ft.replace(R.id.frameLayout_check, user);
+                        ft.replace(R.id.frameLayout_check, new NaviUser());
                         ft.commit();
+                        ADContext.getInstance().index = 3;
                         break;
                 }
             }

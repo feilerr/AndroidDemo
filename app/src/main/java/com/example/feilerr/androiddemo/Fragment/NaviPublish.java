@@ -11,6 +11,7 @@ import android.view.ViewParent;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.example.ADContext;
 import com.example.feilerr.androiddemo.R;
 import com.example.viewFactory.LayoutFactory;
 import com.example.viewFactory.MTextView;
@@ -73,6 +74,7 @@ public class NaviPublish extends Fragment {
                 ft = fm.beginTransaction();
                 ft.replace(R.id.frameLayout_check, new NaviHome());
                 ft.commit();
+                ADContext.getInstance().index = 0;
             }
         });
         tv2.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +85,7 @@ public class NaviPublish extends Fragment {
                 ft = fm.beginTransaction();
                 ft.replace(R.id.frameLayout_check, new NaviCommune());
                 ft.commit();
+                ADContext.getInstance().index = 1;
             }
         });
         tv4.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +96,7 @@ public class NaviPublish extends Fragment {
                 ft = fm.beginTransaction();
                 ft.replace(R.id.frameLayout_check, new NaviUser());
                 ft.commit();
+                ADContext.getInstance().index = 3;
             }
         });
     }

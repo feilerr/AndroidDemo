@@ -11,6 +11,7 @@ import android.view.ViewParent;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.example.ADContext;
 import com.example.feilerr.androiddemo.R;
 import com.example.viewFactory.LayoutFactory;
 import com.example.viewFactory.MTextView;
@@ -74,6 +75,7 @@ public class NaviUser extends Fragment {
                 ft = fm.beginTransaction();
                 ft.replace(R.id.frameLayout_check, new NaviHome());
                 ft.commit();
+                ADContext.getInstance().index = 0;
             }
         });
         tv2.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +86,7 @@ public class NaviUser extends Fragment {
                 ft = fm.beginTransaction();
                 ft.replace(R.id.frameLayout_check, new NaviCommune());
                 ft.commit();
+                ADContext.getInstance().index = 1;
             }
         });
         tv3.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +97,7 @@ public class NaviUser extends Fragment {
                 ft = fm.beginTransaction();
                 ft.replace(R.id.frameLayout_check, new NaviPublish());
                 ft.commit();
+                ADContext.getInstance().index = 2;
             }
         });
     }
