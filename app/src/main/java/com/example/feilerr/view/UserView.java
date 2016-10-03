@@ -2,7 +2,6 @@ package com.example.feilerr.view;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.example.feilerr.androiddemo.R;
@@ -67,15 +66,15 @@ public class UserView extends RelativeLayout implements ViewFactory {
         this.addView(et);
     }
 
-    public View resizeNavi(View view){
-        MTextView navi1 = (MTextView)view.findViewById(R.id.fragment_check_home);
-        navi1.getCompoundDrawables()[1].setBounds(0,0,naviBtnWidth,naviBtnWidth);
-        MTextView navi2 = (MTextView)view.findViewById(R.id.fragment_check_commune);
-        navi2.getCompoundDrawables()[1].setBounds(0,0,naviBtnWidth,naviBtnWidth);
-        MTextView navi3 = (MTextView)view.findViewById(R.id.fragment_check_publish);
-        navi3.getCompoundDrawables()[1].setBounds(0,0,naviBtnWidth,naviBtnWidth);
-        MTextView navi4 = (MTextView)view.findViewById(R.id.fragment_check_user);
-        navi4.getCompoundDrawables()[1].setBounds(0,0,naviBtnWidth,naviBtnWidth);
-        return view;
-    }
+//    public View resizeNavi(View view){
+//        MTextView navi1 = (MTextView)view.findViewById(R.id.fragment_check_home);
+//        navi1.getCompoundDrawables()[1].setBounds(0,0,naviBtnWidth,naviBtnWidth);
+//        MTextView navi2 = (MTextView)view.findViewById(R.id.fragment_check_commune);
+//        navi2.getCompoundDrawables()[1].setBounds(0,0,naviBtnWidth,naviBtnWidth);
+//        MTextView navi3 = (MTextView)view.findViewById(R.id.fragment_check_publish);
+//        navi3.getCompoundDrawables()[1].setBounds(0,0,naviBtnWidth,naviBtnWidth);
+//        MTextView navi4 = (MTextView)view.findViewById(R.id.fragment_check_user);
+//        navi4.getCompoundDrawables()[1].setBounds(0,0,naviBtnWidth,naviBtnWidth);
+//        return view;
+//    }
 }

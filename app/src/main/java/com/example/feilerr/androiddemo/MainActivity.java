@@ -10,10 +10,7 @@ import com.example.ADContext;
 import com.example.feilerr.androiddemo.Adapter.FragementViewPagerAdapter;
 import com.example.feilerr.androiddemo.Fragment.CommuneFragment;
 import com.example.feilerr.androiddemo.Fragment.HomeFragment;
-import com.example.feilerr.androiddemo.Fragment.NaviCommune;
-import com.example.feilerr.androiddemo.Fragment.NaviHome;
-import com.example.feilerr.androiddemo.Fragment.NaviPublish;
-import com.example.feilerr.androiddemo.Fragment.NaviUser;
+import com.example.feilerr.androiddemo.Fragment.NavigationBar;
 import com.example.feilerr.androiddemo.Fragment.PublishFragment;
 import com.example.feilerr.androiddemo.Fragment.UserFragment;
 import com.example.viewFactory.MButton;
@@ -44,22 +41,22 @@ public class MainActivity extends FragmentActivity{
         switch (ADContext.getInstance().index){
             case 0:
                 ft = fm.beginTransaction();
-                ft.replace(R.id.frameLayout_check, new NaviHome());
+                ft.replace(R.id.frameLayout_check, new NavigationBar());
                 ft.commit();
                 break;
             case 1:
                 ft = fm.beginTransaction();
-                ft.replace(R.id.frameLayout_check, new NaviCommune());
+                ft.replace(R.id.frameLayout_check, new NavigationBar());
                 ft.commit();
                 break;
             case 2:
                 ft = fm.beginTransaction();
-                ft.replace(R.id.frameLayout_check, new NaviPublish());
+                ft.replace(R.id.frameLayout_check, new NavigationBar());
                 ft.commit();
                 break;
             case 4:
                 ft = fm.beginTransaction();
-                ft.replace(R.id.frameLayout_check, new NaviUser());
+                ft.replace(R.id.frameLayout_check, new NavigationBar());
                 ft.commit();
                 break;
         }
@@ -97,7 +94,7 @@ public class MainActivity extends FragmentActivity{
                 viewPager.setCurrentItem(0);
                 fragPagerAdapter.notifyDataSetChanged();
                 ft = fm.beginTransaction();
-                ft.replace(R.id.frameLayout_check, new NaviHome());
+                ft.replace(R.id.frameLayout_check, new NavigationBar());
                 ft.commit();
                 ADContext.getInstance().index = 0;
             }
@@ -108,7 +105,7 @@ public class MainActivity extends FragmentActivity{
                 viewPager.setCurrentItem(1);
                 fragPagerAdapter.notifyDataSetChanged();
                 ft = fm.beginTransaction();
-                ft.replace(R.id.frameLayout_check, new NaviCommune());
+                ft.replace(R.id.frameLayout_check, new NavigationBar());
                 ft.commit();
                 ADContext.getInstance().index = 1;
             }
@@ -119,7 +116,7 @@ public class MainActivity extends FragmentActivity{
                 viewPager.setCurrentItem(2);
                 fragPagerAdapter.notifyDataSetChanged();
                 ft = fm.beginTransaction();
-                ft.replace(R.id.frameLayout_check, new NaviPublish());
+                ft.replace(R.id.frameLayout_check, new NavigationBar());
                 ft.commit();
                 ADContext.getInstance().index = 2;
             }
@@ -131,7 +128,7 @@ public class MainActivity extends FragmentActivity{
                 viewPager.setCurrentItem(3);
                 fragPagerAdapter.notifyDataSetChanged();
                 ft = fm.beginTransaction();
-                ft.replace(R.id.frameLayout_check, new NaviUser());
+                ft.replace(R.id.frameLayout_check, new NavigationBar());
                 ft.commit();
                 ADContext.getInstance().index = 3;
             }
@@ -149,25 +146,25 @@ public class MainActivity extends FragmentActivity{
                 switch (position) {
                     case 0:
                         ft = fm.beginTransaction();
-                        ft.replace(R.id.frameLayout_check, new NaviHome());
+                        ft.replace(R.id.frameLayout_check, new NavigationBar());
                         ft.commit();
                         ADContext.getInstance().index = 0;
                         break;
                     case 1:
                         ft = fm.beginTransaction();
-                        ft.replace(R.id.frameLayout_check, new NaviCommune());
+                        ft.replace(R.id.frameLayout_check, new NavigationBar());
                         ft.commit();
                         ADContext.getInstance().index = 1;
                         break;
                     case 2:
                         ft = fm.beginTransaction();
-                        ft.replace(R.id.frameLayout_check, new NaviPublish());
+                        ft.replace(R.id.frameLayout_check, new NavigationBar());
                         ft.commit();
                         ADContext.getInstance().index = 2;
                         break;
                     case 3:
                         ft = fm.beginTransaction();
-                        ft.replace(R.id.frameLayout_check, new NaviUser());
+                        ft.replace(R.id.frameLayout_check, new NavigationBar());
                         ft.commit();
                         ADContext.getInstance().index = 3;
                         break;
