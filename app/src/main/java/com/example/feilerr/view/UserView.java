@@ -2,6 +2,7 @@ package com.example.feilerr.view;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.example.feilerr.androiddemo.R;
@@ -38,7 +39,12 @@ public class UserView extends RelativeLayout implements ViewFactory {
         naviBtnWidth  = (int)(ShareData.getInstance().DENSITY*20);
     }
 
-    public void addContent(int textID,int editID,String text,String hint) {
+    @Override
+    public void addSubView(View view) {
+
+    }
+
+    public void addContent(int textID, int editID, String text, String hint) {
 
         RelativeLayout.LayoutParams tvParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
                 (int)ShareData.getInstance().ITEM_HEIGHT);

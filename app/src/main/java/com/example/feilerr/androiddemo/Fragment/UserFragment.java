@@ -18,13 +18,14 @@ import com.example.viewFactory.MButton;
 import com.example.viewFactory.MEditText;
 import com.example.viewFactory.MTextView;
 
+import zframework.base.ViewFactory;
 import zframework.support.ShareData;
 
 /**
  * Created by feilerr on 2016/9/28.
  */
 
-public class UserFragment extends Fragment {
+public class UserFragment extends Fragment implements ViewFactory{
     private MEditText usernameET;
     private MEditText passwordET;
     private MButton showPassword;
@@ -35,11 +36,17 @@ public class UserFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_user, container, false);
-        findView(view);
+        addSubView(view);
         return view;
     }
 
-    private void findView(View rootView){
+    @Override
+    public void init() {
+
+    }
+
+    @Override
+    public void addSubView(View rootView){
         RelativeLayout rootLayout = (RelativeLayout)rootView;
         int userLayoutHeight = (int) (ShareData.getInstance().DENSITY * 260);
         LayoutFactory userLayout = new LayoutFactory(new RelativeLayout(this.getActivity()));
@@ -90,15 +97,15 @@ public class UserFragment extends Fragment {
                 (int)(ShareData.getInstance().DENSITY*16));
         showParams.addRule(RelativeLayout.RIGHT_OF,R.id.password);
         showPassword.setLayoutParams(showParams);
-        showPassword.setBackgroundResource(R.drawable.icon_loginyincang);
+        showPassword.setBackgroundResource(R.drawable.icon_loginkejian);
         showPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (isShowPassword){
-                    showPassword.setBackgroundResource(R.drawable.icon_loginkejian);
+                    showPassword.setBackgroundResource(R.drawable.icon_loginkejian2);
                     passwordET.setInputType(InputType.TYPE_CLASS_TEXT);
                 }else{
-                    showPassword.setBackgroundResource(R.drawable.icon_loginyincang);
+                    showPassword.setBackgroundResource(R.drawable.icon_loginkejian);
                     passwordET.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 }
                 isShowPassword = !isShowPassword;

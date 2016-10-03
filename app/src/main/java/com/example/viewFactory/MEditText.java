@@ -42,6 +42,11 @@ public class MEditText extends EditText implements View.OnFocusChangeListener,Vi
     }
 
     @Override
+    public void addSubView(View view) {
+
+    }
+
+    @Override
     public void onTextChanged(CharSequence text, int start, int lengthBefore, int lengthAfter) {
         super.onTextChanged(text, start, lengthBefore, lengthAfter);
         if (hasFocus()){

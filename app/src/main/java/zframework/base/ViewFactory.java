@@ -1,5 +1,7 @@
 package zframework.base;
 
+import android.view.View;
+
 /**
  * Created by feilerr on 2016/9/23.
  */
@@ -7,4 +9,5 @@ package zframework.base;
 public interface ViewFactory {
 
     void init();
+    void addSubView(View view);
 }

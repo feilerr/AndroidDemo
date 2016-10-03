@@ -25,6 +25,11 @@ public class MButton extends Button implements ViewFactory,Refreshable {
     }
 
     @Override
+    public void addSubView(View view) {
+
+    }
+
+    @Override
     public void init() {
         RelativeLayout.LayoutParams itemParams = new RelativeLayout.LayoutParams((int) ShareData.getInstance().ITEM_WIDTH,
                 (int)ShareData.getInstance().ITEM_HEIGHT);
